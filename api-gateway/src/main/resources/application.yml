@@ -1,0 +1,20 @@
+server:
+  port: 9090
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: FILE-SERVICE
+          uri: lb://FILE-SERVICE
+          predicates:
+            - Path= /files/**
+          filters:
+            - RewritePath=/files/(?<segment>.*), /$\{segment}

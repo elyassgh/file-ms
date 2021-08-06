@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload | Spring MS Test</title>
+</head>
+
+<body>
+
+    <h1> Upload single file (Limited to 25M) :</h1>
+
+    <form action="http://localhost:9090/files/upload-file" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+
+        <input type="submit">
+    </form>
+	
+	<h1> Upload multiple files (Limited to 200M, Maximum of 25M for a file ):</h1>
+
+	<form action="http://localhost:9090/files/upload-multiple-files" method="post" enctype="multipart/form-data">
+        <input type="file" name="files" multiple>
+
+        <input type="submit">
+    </form>
+	<br>
+	<hr>
+	<br>
+	<h1> Upload single file in DB:</h1>
+
+    <form action="http://localhost:9090/files/db/upload-file" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+
+        <input type="submit">
+    </form>
+	
+	<h1> Upload multiple files in DB:</h1>
+
+	<form action="http://localhost:9090/files/db/upload-multiple-files" method="post" enctype="multipart/form-data">
+        <input type="file" name="files" multiple>
+
+        <input type="submit">
+    </form>
+
+</body>
+
+</html>
